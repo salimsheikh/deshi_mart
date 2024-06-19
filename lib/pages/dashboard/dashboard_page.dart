@@ -1,5 +1,6 @@
 import 'package:deshi_mart/configs/assets_path.dart';
 import 'package:deshi_mart/pages/dashboard/widgets/home_statics.dart';
+import 'package:deshi_mart/pages/dashboard/widgets/order_history.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -65,6 +66,8 @@ class DashboardPage extends StatelessWidget {
               )
               .toList(),
         ),
+        const SizedBox(height: 30),
+        const OrderHistory(),
       ],
     );
   }
