@@ -1,4 +1,3 @@
-import 'package:deshi_mart/configs/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -24,15 +23,16 @@ class AppDrawerMenu extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: isSelected
                   ? Theme.of(context).colorScheme.onPrimary
-                  : Theme.of(context).colorScheme.onPrimaryContainer,
+                  : Theme.of(context).colorScheme.onSecondaryContainer,
             ),
       ),
       leading: SvgPicture.asset(
         icon,
         width: 20,
+        // ignore: deprecated_member_use
         color: isSelected
             ? Theme.of(context).colorScheme.onPrimary
-            : Theme.of(context).colorScheme.onPrimaryContainer,
+            : Theme.of(context).colorScheme.onSecondaryContainer,
       ),
       selected: isSelected,
       selectedColor: Colors.white,

@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 
 var ligthTheme = ThemeData(
   brightness: Brightness.light,
-  colorScheme: ColorScheme.light(
+  colorScheme: const ColorScheme.light(
     primaryContainer: primaryColor,
-    onPrimaryContainer: onPrimaryConstainerColor,
-    secondaryContainer: primaryConstainerColor,
+    onPrimaryContainer: primaryContainerColor,
+    secondaryContainer: primaryContainerColor,
     onSecondaryContainer: onBackgroundColor,
-    error: const Color(0xffb00020),
+    error: Color(0xffb00020),
     onError: Colors.white,
+  ),
+  drawerTheme: const DrawerThemeData(
+    backgroundColor: darkPrimaryColor,
+    surfaceTintColor: darkPrimaryContaainer,
   ),
   textTheme: TextTheme(
     headlineMedium: TextStyle(
