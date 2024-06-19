@@ -1,9 +1,20 @@
 import 'package:deshi_mart/configs/themes.dart';
-import 'package:deshi_mart/views/auth_view.dart';
+import 'package:deshi_mart/providers/drawar_provider/drawer_provider.dart';
+import 'package:deshi_mart/views/home_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => DrawerProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ligthTheme,
-      home: const AuthView(),
+      home: const HomePageView(),
     );
   }
 }
