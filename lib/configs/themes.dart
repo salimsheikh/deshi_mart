@@ -15,7 +15,7 @@ var ligthTheme = ThemeData(
     backgroundColor: darkPrimaryColor,
     surfaceTintColor: darkPrimaryContaainer,
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     headlineMedium: TextStyle(
       fontFamily: "Poppins",
       fontSize: 25,

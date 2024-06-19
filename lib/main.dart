@@ -1,6 +1,6 @@
 import 'package:deshi_mart/configs/themes.dart';
+import 'package:deshi_mart/pages/home_page/home_page.dart';
 import 'package:deshi_mart/providers/drawar_provider/drawer_provider.dart';
-import 'package:deshi_mart/views/home_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ligthTheme,
-      home: const HomePageView(),
+      home: const HomePage(),
     );
   }
 }
