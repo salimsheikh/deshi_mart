@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
     bool isDesktop = ResponsivePage.isDesktop(context);
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 240, 240),
       drawer: isDesktop ? null : AppDrawer(drawerProvider: drawerProvider),
       body: SafeArea(
           child: Row(

@@ -1,12 +1,38 @@
 import 'package:deshi_mart/configs/assets_path.dart';
+import 'package:deshi_mart/pages/dashboard/widgets/home_statics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var statics = [
+      {
+        "label": "Total Orders",
+        "value": "220",
+        "iconBgColor": "0xff019934",
+        "icon": IconsAssets.cart
+      },
+      {
+        "label": "Pending Order",
+        "value": "65",
+        "iconBgColor": "0xffEE0000",
+        "icon": IconsAssets.refresh
+      },
+      {
+        "label": "Processing Order",
+        "value": "65",
+        "iconBgColor": "0xff1400FC",
+        "icon": IconsAssets.car
+      },
+      {
+        "label": "Completed Order",
+        "value": "23",
+        "iconBgColor": "0xff019934",
+        "icon": IconsAssets.done
+      }
+    ];
     return Column(
       children: [
         Row(
@@ -24,67 +50,22 @@ class DashboardPage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        const Row(
-          children: [
-            DashboardStaticsWidget(),
-            DashboardStaticsWidget(),
-            DashboardStaticsWidget(),
-          ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: statics
+              .map(
+                (e) => Expanded(
+                  child: HomeStatics(
+                    label: e["label"]!,
+                    icon: e["icon"]!,
+                    value: e["value"]!,
+                    iconBgColor: e["iconBgColor"]!,
+                  ),
+                ),
+              )
+              .toList(),
         ),
       ],
-    );
-  }
-}
-
-class DashboardStaticsWidget extends StatelessWidget {
-  const DashboardStaticsWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 100,
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondaryContainer,
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .colorScheme
-                    .primaryContainer
-                    .withOpacity(0.2),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: SvgPicture.asset(
-                IconsAssets.cart,
-                width: 25,
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Total Order",
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-                Text(
-                  "3652",
-                  style: Theme.of(context).textTheme.headlineMedium,
-                )
-              ],
-            )
-          ],
-        ),
-      ),
     );
   }
 }
