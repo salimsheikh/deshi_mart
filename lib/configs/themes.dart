@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 var ligthTheme = ThemeData(
   brightness: Brightness.light,
   colorScheme: const ColorScheme.light(
+    surface: primaryColor,
+    onSurface: primaryContainerColor,
     primaryContainer: primaryColor,
     onPrimaryContainer: primaryContainerColor,
     secondaryContainer: primaryContainerColor,
