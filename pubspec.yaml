@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_svg: ^2.0.10+1
   provider: ^6.1.2
+  syncfusion_flutter_datagrid: ^26.1.38
+  flutter_animated_icons: ^1.0.1
 
 dev_dependencies:
   flutter_test:
