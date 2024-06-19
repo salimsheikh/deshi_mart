@@ -21,23 +21,19 @@ class HomePage extends StatelessWidget {
         children: [
           if (isDesktop)
             Expanded(child: AppDrawer(drawerProvider: drawerProvider)),
-          const Expanded(
+          Expanded(
             flex: 6,
             child: Column(
               children: [
-                AppTopBar(),
-                SizedBox(
+                const AppTopBar(),
+                const SizedBox(
                   height: 10,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(10),
-                  child: CommanPage(
-                    pageTitle: "Dashboard",
-                    child: Column(
-                      children: [
-                        Text("First Page"),
-                      ],
-                    ),
+                  padding: const EdgeInsets.all(10),
+                  child: Consumer<DrawerProvider>(
+                    builder: (context, value, child) =>
+                        value.pages[value.selectedPageIndex],
                   ),
                 ),
               ],

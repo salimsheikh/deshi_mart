@@ -35,7 +35,7 @@ class AppDrawer extends StatelessWidget {
               ),
               AppDrawerMenu(
                 isSelected: drawerProvider.selectedPageIndex == 1,
-                title: "Bag",
+                title: "Product",
                 icon: IconsAssets.bag,
                 onPress: () {
                   drawerProvider.seletedMenu(1);
@@ -63,14 +63,6 @@ class AppDrawer extends StatelessWidget {
                 icon: IconsAssets.setting,
                 onPress: () {
                   drawerProvider.seletedMenu(4);
-                },
-              ),
-              AppDrawerMenu(
-                isSelected: drawerProvider.selectedPageIndex == 5,
-                title: "Cart",
-                icon: IconsAssets.cart,
-                onPress: () {
-                  drawerProvider.seletedMenu(5);
                 },
               ),
             ],
