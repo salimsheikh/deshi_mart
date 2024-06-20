@@ -1,3 +1,4 @@
+import 'package:deshi_mart/widgets/hover_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,49 +18,57 @@ class HomeStatics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 100,
-        padding: const EdgeInsets.all(15),
-        margin: const EdgeInsets.only(right: 15),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondaryContainer,
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 50,
-              height: 50,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Color(int.parse(iconBgColor)).withOpacity(0.2),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: SvgPicture.asset(
-                icon,
-                width: 25,
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: Theme.of(context).textTheme.labelMedium,
+    return HoverEffect(
+      builder: (isHover) {
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 400),
+          height: 100,
+          padding: const EdgeInsets.all(15),
+          margin: const EdgeInsets.only(right: 15),
+          decoration: BoxDecoration(
+            color: isHover
+                ? Theme.of(context)
+                    .colorScheme
+                    .primaryContainer
+                    .withOpacity(0.1)
+                : Theme.of(context).colorScheme.secondaryContainer,
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Color(int.parse(iconBgColor)).withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(100),
                 ),
-                Text(
-                  value,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+                child: SvgPicture.asset(
+                  icon,
+                  width: 25,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    label,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  Text(
+                    value,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  )
+                ],
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
