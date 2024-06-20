@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Deshi Mart',
-      theme: ligthTheme,
+      theme: lightTheme,
       routerConfig: pageRoutes,
     );
   }

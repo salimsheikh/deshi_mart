@@ -1,3 +1,4 @@
+import 'package:deshi_mart/pages/product/widgets/product_details.dart';
 import 'package:flutter/material.dart';
 
 class AddProductPage extends StatelessWidget {
@@ -7,15 +8,22 @@ class AddProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        //actions: [],
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: const Text("Add Product"),
-        // leading: IconButton(
-        //   onPressed: () {
-        //     context.push('/');
-        //   },
-        //   icon: const Icon(Icons.arrow_back),
-        // ),
+      ),
+      body: const Row(
+        children: [
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                ProductDetails(),
+              ],
+            ),
+          )),
+          Expanded(child: Text("Right")),
+        ],
       ),
     );
   }
