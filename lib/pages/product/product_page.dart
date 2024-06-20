@@ -1,3 +1,4 @@
+import 'package:deshi_mart/pages/product/widgets/product_table_data.dart';
 import 'package:deshi_mart/widgets/primary_button.dart';
 import 'package:deshi_mart/widgets/primary_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class ProductPage extends StatelessWidget {
             PrimaryButton(
               name: "Export",
               icon: Icons.import_export,
-              color: Theme.of(context).colorScheme.primary,
+              color: Colors.deepPurple,
               onTap: () {},
             ),
             const SizedBox(width: 10),
@@ -51,6 +52,7 @@ class ProductPage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
+        const ProductTableData()
       ],
     );
   }
