@@ -2,6 +2,7 @@ import 'package:deshi_mart/pages/product/widgets/product_table_data.dart';
 import 'package:deshi_mart/widgets/primary_button.dart';
 import 'package:deshi_mart/widgets/primary_icon_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
@@ -47,7 +48,9 @@ class ProductPage extends StatelessWidget {
               name: "Add Product",
               icon: Icons.add,
               color: Theme.of(context).colorScheme.primaryContainer,
-              onTap: () {},
+              onTap: () {
+                context.push("/addProduct");
+              },
             ),
           ],
         ),
