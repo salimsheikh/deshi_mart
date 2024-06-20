@@ -10,55 +10,64 @@ class OrderHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     final productDataSource = ProductGridSource(products);
 
-    return SfDataGrid(
-        allowEditing: false,
-        allowFiltering: false,
-        allowSorting: true,
-        showColumnHeaderIconOnHover: true,
-        gridLinesVisibility: GridLinesVisibility.none,
-        source: productDataSource,
-        columns: [
-          GridColumn(
-              width: 100,
-              columnName: "id",
-              label: const ColumnHeader(label: "ID")),
-          GridColumn(
-              width: 150,
-              columnName: "name",
-              label: const ColumnHeader(label: "Name")),
-          GridColumn(
-              width: 100,
-              columnName: "salePrice",
-              label: const ColumnHeader(label: "Price")),
-          GridColumn(
-              width: 100,
-              columnName: "isActive",
-              label: const ColumnHeader(label: "Active")),
-          GridColumn(
-              width: 100,
-              columnName: "stock",
-              label: const ColumnHeader(label: "Stock")),
-          GridColumn(
-              width: 110,
-              columnName: "supplier",
-              label: const ColumnHeader(label: "Supplier")),
-          GridColumn(
-              width: 100,
-              columnName: "unit",
-              label: const ColumnHeader(label: "Unit")),
-          GridColumn(
-              width: 150,
-              columnName: "purchasePrice",
-              label: const ColumnHeader(label: "Purchase Price")),
-          GridColumn(
-              width: 150,
-              columnName: "tags",
-              label: const ColumnHeader(label: "Tags")),
-          GridColumn(
-              width: 100,
-              columnName: "action",
-              label: const ColumnHeader(label: "Actions")),
-        ]);
+    return Container(
+      height: 600,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
+      ),
+      padding: const EdgeInsets.all(0),
+      child: SfDataGrid(
+          allowEditing: false,
+          allowFiltering: true,
+          allowSorting: true,
+          showColumnHeaderIconOnHover: true,
+          headerGridLinesVisibility: GridLinesVisibility.none,
+          gridLinesVisibility: GridLinesVisibility.none,
+          source: productDataSource,
+          columns: [
+            GridColumn(
+                width: 100,
+                columnName: "id",
+                label: const ColumnHeader(label: "ID")),
+            GridColumn(
+                width: 150,
+                columnName: "name",
+                label: const ColumnHeader(label: "Name")),
+            GridColumn(
+                width: 100,
+                columnName: "salePrice",
+                label: const ColumnHeader(label: "Price")),
+            GridColumn(
+                width: 100,
+                columnName: "isActive",
+                label: const ColumnHeader(label: "Active")),
+            GridColumn(
+                width: 100,
+                columnName: "stock",
+                label: const ColumnHeader(label: "Stock")),
+            GridColumn(
+                width: 110,
+                columnName: "supplier",
+                label: const ColumnHeader(label: "Supplier")),
+            GridColumn(
+                width: 100,
+                columnName: "unit",
+                label: const ColumnHeader(label: "Unit")),
+            GridColumn(
+                width: 180,
+                columnName: "purchasePrice",
+                label: const ColumnHeader(label: "Purchase Price")),
+            GridColumn(
+                width: 170,
+                columnName: "tags",
+                label: const ColumnHeader(label: "Tags")),
+            GridColumn(
+                width: 100,
+                columnName: "action",
+                label: const ColumnHeader(label: "Actions")),
+          ]),
+    );
   }
 }
 
@@ -70,11 +79,13 @@ class ColumnHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.2)),
+          color:
+              Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2)),
       child: Center(
         child: Text(
           label,
-          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.onPrimaryContainer),
         ),
       ),
     );
@@ -115,7 +126,12 @@ class ProductGridSource extends DataGridSource {
       cells: row.getCells().map(
         (cell) {
           if (cell.columnName == 'action') {
-            return ElevatedButton(onPressed: () {}, child: const Text("Edit"));
+            return Row(children: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.print)),
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.zoom_out_map_rounded)),
+            ]);
           } else {
             return Center(
               child: Text(cell.value.toString(),

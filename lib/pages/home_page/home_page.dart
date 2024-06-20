@@ -30,11 +30,15 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Consumer<DrawerProvider>(
-                    builder: (context, value, child) =>
-                        value.pages[value.selectedPageIndex],
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Consumer<DrawerProvider>(
+                        builder: (context, value, child) =>
+                            value.pages[value.selectedPageIndex],
+                      ),
+                    ),
                   ),
                 ),
               ],
