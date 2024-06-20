@@ -1,4 +1,5 @@
 import 'package:deshi_mart/pages/dashboard/dashboard_page.dart';
+import 'package:deshi_mart/pages/product/product_page.dart';
 import 'package:deshi_mart/providers/drawar_provider/drawer_provider.dart';
 import 'package:deshi_mart/widgets/app_drawer.dart';
 import 'package:deshi_mart/widgets/app_bar.dart';
@@ -59,7 +60,7 @@ class CommanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
-        children: [const DashboardPage(), child],
+        children: [const ProductPage(), child],
       ),
     );
   }

@@ -1,5 +1,5 @@
-import 'package:deshi_mart/pages/dashboard/widgets/order_history.dart';
 import 'package:deshi_mart/widgets/primary_button.dart';
+import 'package:deshi_mart/widgets/primary_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class ProductPage extends StatelessWidget {
             Container(
               height: 40,
               width: 7,
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(width: 10),
             Text(
@@ -24,11 +24,24 @@ class ProductPage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        const SizedBox(height: 30),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            const SizedBox(width: 10),
+            PrimaryIconButton(
+              icon: Icons.refresh,
+              color: Colors.orange,
+              onTap: () {},
+            ),
+            const SizedBox(width: 10),
+            PrimaryButton(
+              name: "Export",
+              icon: Icons.import_export,
+              color: Theme.of(context).colorScheme.primary,
+              onTap: () {},
+            ),
+            const SizedBox(width: 10),
             PrimaryButton(
               name: "Add Product",
               icon: Icons.add,
@@ -38,7 +51,6 @@ class ProductPage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 30),
-        const OrderHistory(),
       ],
     );
   }

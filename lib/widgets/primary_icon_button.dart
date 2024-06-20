@@ -1,15 +1,14 @@
 import 'package:deshi_mart/widgets/hover_effect.dart';
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
-  final String name;
+class PrimaryIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
   final Color color;
-  const PrimaryButton({
+
+  const PrimaryIconButton({
     super.key,
     required this.color,
-    required this.name,
     required this.icon,
     required this.onTap,
   });
@@ -22,7 +21,6 @@ class PrimaryButton extends StatelessWidget {
         builder: (isHover) => AnimatedContainer(
           duration: const Duration(milliseconds: 400),
           padding: const EdgeInsets.all(10),
-          //width: 180,
           alignment: Alignment.topRight,
           decoration: BoxDecoration(
             color: isHover ? color : color.withOpacity(0.2),
@@ -35,16 +33,7 @@ class PrimaryButton extends StatelessWidget {
               Icon(
                 icon,
                 color: isHover ? Colors.white : color,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                name,
-                style: TextStyle(
-                  color: isHover ? Colors.white : color,
-                ),
-              ),
+              )
             ],
           ),
         ),
