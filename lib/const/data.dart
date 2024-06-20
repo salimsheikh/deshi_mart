@@ -34,7 +34,7 @@ var products = [
     discountEndData: "",
     discountStartDate: "",
     images: [],
-    isActive: true,
+    isActive: false,
     purchasePrice: 50000,
     sellPrice: 55000,
     unit: "Piece",

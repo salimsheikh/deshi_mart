@@ -1,5 +1,6 @@
 import 'package:deshi_mart/const/data.dart';
 import 'package:deshi_mart/models/product_model.dart';
+import 'package:deshi_mart/widgets/primary_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
@@ -20,6 +21,7 @@ class ProductTableData extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(0),
       child: SfDataGrid(
+          rowHeight: 100,
           allowEditing: false,
           allowFiltering: true,
           allowSorting: true,
@@ -33,17 +35,17 @@ class ProductTableData extends StatelessWidget {
                 columnName: "id",
                 label: const ColumnHeader(label: "ID")),
             GridColumn(
-                width: 150,
+                width: 100,
                 columnName: "name",
                 label: const ColumnHeader(label: "Name")),
             GridColumn(
                 width: 100,
-                columnName: "salePrice",
-                label: const ColumnHeader(label: "Price")),
+                columnName: "image",
+                label: const ColumnHeader(label: "Image")),
             GridColumn(
                 width: 100,
-                columnName: "isActive",
-                label: const ColumnHeader(label: "Active")),
+                columnName: "salePrice",
+                label: const ColumnHeader(label: "Price")),
             GridColumn(
                 width: 100,
                 columnName: "stock",
@@ -61,11 +63,14 @@ class ProductTableData extends StatelessWidget {
                 columnName: "purchasePrice",
                 label: const ColumnHeader(label: "Purchase Price")),
             GridColumn(
-                width: 170,
-                columnName: "tags",
-                label: const ColumnHeader(label: "Tags")),
-            GridColumn(
                 width: 100,
+                columnName: "isActive",
+                label: const ColumnHeader(label: "Active")),
+            GridColumn(
+                allowEditing: false,
+                allowFiltering: false,
+                allowSorting: false,
+                width: 110,
                 columnName: "action",
                 label: const ColumnHeader(label: "Actions")),
           ]),
@@ -98,15 +103,15 @@ class ProductGridSource extends DataGridSource {
           (product) => DataGridRow(
             cells: [
               DataGridCell(columnName: 'id', value: product.id),
-              DataGridCell(columnName: 'Name', value: product.name),
+              DataGridCell(columnName: 'images', value: product.images),
+              DataGridCell(columnName: 'mame', value: product.name),
               DataGridCell(columnName: 'sellPrice', value: product.sellPrice),
-              DataGridCell(columnName: 'isActive', value: product.isActive),
               DataGridCell(columnName: 'stock', value: product.stock),
               DataGridCell(columnName: 'supplier', value: product.supplier),
               DataGridCell(columnName: 'unit', value: product.unit),
               DataGridCell(
                   columnName: 'purchasePrice', value: product.purchasePrice),
-              DataGridCell(columnName: 'tags', value: product.tags),
+              DataGridCell(columnName: 'isActive', value: product.isActive),
               DataGridCell(columnName: 'action', value: product.id),
             ],
           ),
@@ -122,13 +127,41 @@ class ProductGridSource extends DataGridSource {
     return DataGridRowAdapter(
       cells: row.getCells().map(
         (cell) {
+          if (cell.columnName == 'images') {
+            return Container(
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.green.withOpacity(0.2),
+              ),
+            );
+          }
+
+          if (cell.columnName == 'isActive') {
+            return Center(
+              child: Text(
+                cell.value.toString().toUpperCase(),
+                style: TextStyle(
+                  color: cell.value == true ? Colors.green : Colors.red,
+                ),
+              ),
+            );
+          }
+
           if (cell.columnName == 'action') {
-            return Row(children: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.print)),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.zoom_out_map_rounded)),
-            ]);
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(children: [
+                  PrimaryIconButton(
+                      color: Colors.green, icon: Icons.edit, onTap: () {}),
+                  const SizedBox(width: 10),
+                  PrimaryIconButton(
+                      color: Colors.red, icon: Icons.delete, onTap: () {}),
+                  const SizedBox(width: 10),
+                ]),
+              ],
+            );
           } else {
             return Center(
               child: Text(cell.value.toString(),
