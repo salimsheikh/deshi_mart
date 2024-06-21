@@ -10,6 +10,17 @@ var lightTheme = ThemeData(
       primaryContainer: primaryContainerColor,
       onPrimaryContainer: onPrimaryContainerColor,
     ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: InputBorder.none,
+      fillColor: Color.fromARGB(255, 242, 243, 246),
+      filled: true,
+      hintStyle: TextStyle(
+        fontFamily: "Poppins",
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: Color.fromARGB(255, 42, 42, 42),
+      ),
+    ),
     textTheme: const TextTheme(
       headlineMedium: TextStyle(
         fontFamily: "Poppins",

@@ -10,7 +10,7 @@ class ProductDetails extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration:
-          BoxDecoration(color: Theme.of(context).colorScheme.primaryContainer),
+          const BoxDecoration(color: Color.fromARGB(255, 218, 218, 218)),
       child: Row(
         children: [
           Expanded(
@@ -29,17 +29,50 @@ class ProductDetails extends StatelessWidget {
                 const Divider(
                   color: Colors.grey,
                 ),
-                const Text("Product name"),
-                TextField(
+                Text(
+                  "Product name",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const TextField(
                   decoration: InputDecoration(
                     hintText: 'Product Name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(
-                        width: 0.5,
-                        color: Colors.white,
-                      ),
-                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Description",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const TextField(
+                  maxLines: 5,
+                  decoration: InputDecoration(
+                    hintText: 'Enter product descriptions',
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Category",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Category',
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Sub Category",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Sub Category',
                   ),
                 )
               ],
