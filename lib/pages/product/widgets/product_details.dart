@@ -8,6 +8,8 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var categories = ['Electronic', 'Clothing'];
+
     return Container(
       padding: const EdgeInsets.all(10),
       decoration:
@@ -59,23 +61,25 @@ class ProductDetails extends StatelessWidget {
                   "Category",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Category',
-                  ),
+                const SizedBox(
+                  height: 15,
+                ),
+                SearchDropdownField(
+                  items: categories,
+                  selectedValue: (value) {},
+                  hintText: "Select Category",
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                const DropdownField(),
                 Text(
                   "Sub Category",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Sub Category',
-                  ),
+                SearchDropdownField(
+                  items: categories,
+                  selectedValue: (value) {},
+                  hintText: "Select Category",
                 ),
                 const SizedBox(
                   height: 15,
