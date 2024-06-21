@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 class ProductMeta extends StatelessWidget {
@@ -30,49 +31,34 @@ class ProductMeta extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 Text(
-                  "Product name",
+                  "Product Images",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Product Name',
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  "Description",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const TextField(
-                  maxLines: 5,
-                  decoration: InputDecoration(
-                    hintText: 'Enter product descriptions',
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  "Category",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Category',
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  "Sub Category",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Sub Category',
+                DottedBorder(
+                  radius: const Radius.circular(10),
+                  color: Colors.grey,
+                  strokeWidth: 1,
+                  dashPattern: const [5, 7],
+                  child: SizedBox(
+                    height: 150,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.cloud_upload_outlined),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Click here to upload images.",
+                              style: Theme.of(context).textTheme.labelLarge,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
