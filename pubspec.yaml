@@ -36,6 +36,7 @@ dependencies:
   syncfusion_flutter_datagrid: ^26.1.38
   flutter_animated_icons: ^1.0.1
   go_router: ^14.2.0
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:

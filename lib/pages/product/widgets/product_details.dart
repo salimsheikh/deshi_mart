@@ -1,3 +1,4 @@
+import 'package:deshi_mart/widgets/dropdown_field.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -66,6 +67,7 @@ class ProductDetails extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
+                const DropdownField(),
                 Text(
                   "Sub Category",
                   style: Theme.of(context).textTheme.bodyMedium,
