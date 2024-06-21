@@ -1,4 +1,5 @@
 import 'package:deshi_mart/pages/product/widgets/product_details.dart';
+import 'package:deshi_mart/pages/product/widgets/product_meta.dart';
 import 'package:flutter/material.dart';
 
 class AddProductPage extends StatelessWidget {
@@ -22,7 +23,15 @@ class AddProductPage extends StatelessWidget {
               ],
             ),
           )),
-          Expanded(child: Text("Right")),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                ProductMeta(),
+              ],
+            ),
+          )),
         ],
       ),
     );

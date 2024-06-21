@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductDetails extends StatelessWidget {
-  const ProductDetails({
+class ProductMeta extends StatelessWidget {
+  const ProductMeta({
     super.key,
   });
 
@@ -20,7 +20,7 @@ class ProductDetails extends StatelessWidget {
                 const Row(
                   children: [
                     Icon(Icons.info),
-                    Text("Product Details"),
+                    Text("Product Meta"),
                   ],
                 ),
                 const SizedBox(
@@ -74,20 +74,7 @@ class ProductDetails extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: 'Sub Category',
                   ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Text('Active'),
-                    const SizedBox(width: 10),
-                    Transform.scale(
-                      scale: 0.5,
-                      child: Switch(value: true, onChanged: (value) {}),
-                    ),
-                  ],
-                ),
+                )
               ],
             ),
           )
